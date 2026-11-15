@@ -1,0 +1,109 @@
+{
+  "app_id": "victoriametricsdocker",
+  "title": "VictoriaMetrics",
+  "image": "victoriametrics/victoria-metrics:v1.149.0",
+  "repo_name": "victoriametrics",
+  "mode": "plain",
+  "container_port": 8428,
+  "category": [
+    "Utilities"
+  ],
+  "volumes": [
+    {
+      "host": "/Volume1/DockerAppData/victoriametricsdocker/data",
+      "container": "/victoria-metrics-data"
+    }
+  ],
+  "env": {
+    "TZ": "Asia/Shanghai"
+  },
+  "auth": "VictoriaMetrics",
+  "upstream_url": "https://github.com/VictoriaMetrics/VictoriaMetrics",
+  "upstream_license": "Apache-2.0",
+  "descript": "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder.",
+  "release_note": "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder.",
+  "important": "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet.",
+  "probe": {
+    "user_in_image": "(root)",
+    "entrypoint": [
+      "/victoria-metrics-prod"
+    ],
+    "cmd": null,
+    "exposed_ports": [
+      8428
+    ],
+    "declared_volumes": [],
+    "image_healthcheck": [],
+    "digest": "victoriametrics/victoria-metrics@sha256:13b8951e35bb3589626816538483127785a9d8b53f9f5123769db0fcab1d961f",
+    "architecture": "x86_64",
+    "platforms": [
+      "x86_64",
+      "aarch64"
+    ],
+    "http_client_in_image": "wget",
+    "trial_run": {
+      "ok": false,
+      "http_code": "",
+      "state": "exited",
+      "paths": [],
+      "host_port": 18000,
+      "log_tail": "aMetrics/lib/logger.logMessageInternal({0xe33792, 0x5}, {0x175d4bc34000, 0x4f}, {0x175d4bc2c020, 0x20})\n\tgithub.com/VictoriaMetrics/VictoriaMetrics/lib/logger/logger.go:329 +0x83b\ngithub.com/VictoriaMetrics/VictoriaMetrics/lib/logger.logLevelSkipframes(0x175d4bb9ca98?, {0xe33792, 0x5}, {0xe571fe, 0x22}, {0x175d4c0330d0, 0x1, 0x1})\n\tgithub.com/VictoriaMetrics/VictoriaMetrics/lib/logger/logger.go:162 +0x265\ngithub.com/VictoriaMetrics/VictoriaMetrics/lib/logger.logLevel(...)\n\tgithub.com/VictoriaMetrics/VictoriaMetrics/lib/logger/logger.go:147\ngithub.com/VictoriaMetrics/VictoriaMetrics/lib/logger.Panicf(...)\n\tgithub.com/VictoriaMetrics/VictoriaMetrics/lib/logger/logger.go:143\ngithub.com/VictoriaMetrics/VictoriaMetrics/lib/fs.mustMkdir({0x175d4bb9ca98?, 0x16?})\n\tgithub.com/VictoriaMetrics/VictoriaMetrics/lib/fs/fs.go:134 +0x69\ngithub.com/VictoriaMetrics/VictoriaMetrics/lib/fs.MustMkdirIfNotExist({0x175d4bb9ca98, 0x16})\n\tgithub.com/VictoriaMetrics/VictoriaMetrics/lib/fs/fs.go:117 +0x39\ngithub.com/VictoriaMetrics/VictoriaMetrics/lib/storage.MustOpenStorage({0xe43587?, 0x48323c?}, {0x983fd98910000, 0x9d29229e0000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, ...})\n\tgithub.com/VictoriaMetrics/VictoriaMetrics/lib/storage/storage.go:212 +0x38e\ngithub.com/VictoriaMetrics/VictoriaMetrics/app/vmstorage.Init(0x10, 0x2540be400, 0xff6000)\n\tgithub.com/VictoriaMetrics/VictoriaMetrics/app/vmstorage/main.go:166 +0x5c8\nmain.main()\n\tgithub.com/VictoriaMetrics/VictoriaMetrics/app/victoria-metrics/main.go:92 +0x2ea",
+      "files_in_mounts": ""
+    },
+    "docker_hub": {},
+    "github": {
+      "owner": "VictoriaMetrics",
+      "repo": "VictoriaMetrics",
+      "description": "VictoriaMetrics: fast, cost-effective monitoring solution and time series database",
+      "license": "Apache-2.0",
+      "homepage": "https://victoriametrics.com/"
+    }
+  },
+  "healthcheck": [
+    "CMD-SHELL",
+    "grep -q ':20EC' /proc/net/tcp6 || grep -q ':20EC' /proc/net/tcp"
+  ],
+  "entrypoint_file": "src/entrypoint.sh",
+  "platform": "x86_64",
+  "user": "1000:1000",
+  "publisher": "Moechz",
+  "compose_project": "victoriametricsdocker",
+  "github_repo": "victoriametrics",
+  "upstream_version": "1.149.0",
+  "release_tag_prefix": "v",
+  "version": "1.149.0-1",
+  "help": "https://github.com/Moechz/victoriametrics/issues",
+  "official": "https://github.com/VictoriaMetrics/VictoriaMetrics",
+  "license": "Apache-2.0",
+  "docker_socket": false,
+  "group_add": [],
+  "host_port": 8167,
+  "command": [
+    "-storageDataPath=/victoria-metrics-data",
+    "-httpListenAddr=:8428",
+    "-retentionPeriod=12"
+  ],
+  "healthcheck_start_period": "30s",
+  "translations": {
+    "zh-cn": {
+      "descript": "VictoriaMetrics 是快速、低内存的时序数据库与监控方案：通过 Prometheus remote-write、InfluxDB 或 Graphite 协议写入指标，用 PromQL/MetricsQL 查询，并在内置的 vmui 网页界面里查看。单容器、单端口，数据保存在应用数据目录。",
+      "important": "需要 DockerEngine（缺失时应用中心会自动安装）。网页界面在 /vmui（根路径会重定向过去）；把 exporter 或 agent 指向同一端口的 remote-write 路径 /api/v1/write。保留期默认 12 个月，可在应用设置里调整。数据保存在 DockerAppData/victoriametricsdocker/data。界面为纯 HTTP，暴露到公网前请配置带 TLS 的反向代理。",
+      "release_note": "1. 首个版本：基于 Docker Hub 的 VictoriaMetrics 1.149.0，以非 root 容器运行。时序数据库，支持 PromQL/MetricsQL 与 vmui 网页界面；数据保存在应用数据目录。"
+    },
+    "zh-hk": {
+      "descript": "VictoriaMetrics 是快速、低記憶體的時序資料庫與監控方案：透過 Prometheus remote-write、InfluxDB 或 Graphite 協議寫入指標，用 PromQL/MetricsQL 查詢，並在內建的 vmui 網頁介面裡查看。單容器、單端口，資料保存在應用資料目錄。",
+      "important": "需要 DockerEngine（缺少時應用中心會自動安裝）。網頁介面在 /vmui（根路徑會重導過去）；把 exporter 或 agent 指向同一端口的 remote-write 路徑 /api/v1/write。保留期預設 12 個月，可在應用設定裡調整。資料保存在 DockerAppData/victoriametricsdocker/data。介面為純 HTTP，公開到互聯網前請配置帶 TLS 的反向代理。",
+      "release_note": "1. 首個版本：基於 Docker Hub 的 VictoriaMetrics 1.149.0，以非 root 容器運行。時序資料庫，支援 PromQL/MetricsQL 與 vmui 網頁介面；資料保存在應用資料目錄。"
+    }
+  },
+  "data_notes": "`/victoria-metrics-data` (mounted from `DockerAppData/victoriametricsdocker/data`) holds the storage parts, index and metadata.",
+  "design_notes": [
+    "**Health check without HTTP tools.** The image has `sh` and `grep` but no curl/wget, so the check greps the listening port (8428 = 0x20EC) in `/proc/net/`.",
+    "**One port for API and UI.** Prometheus remote-write, PromQL API and vmui share port 8428."
+  ],
+  "limitations": [
+    "- It stores metrics; exporters or agents must send data to it.",
+    "- The UI is plain HTTP; use a TLS reverse proxy before exposing it to the internet.",
+    "- Retention and disk usage are your responsibility; watch free space on the NAS."
+  ]
+}

@@ -1,0 +1,195 @@
+# ===========================================================================
+# Multilingual file for the TOS 7 Docker application "victoriametricsdocker".
+# File name MUST be: <appid>.lang.  23-language superset (14 required by TOS).
+# The App Center picks the text matching the user's device language;
+# untranslated nodes fall back to English, which the official guide allows.
+# Fields: name (app title), auth (upstream author), descript (up to 512
+# chars), release_note, important (up to 512 chars).
+# Translations come from tosapp.json "translations"; run
+#   tosdocker lang <app>          to re-render this file
+#   tosdocker translate <app>     to see what still needs translating
+# ===========================================================================
+[en-us]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[zh-cn]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics 是快速、低内存的时序数据库与监控方案：通过 Prometheus remote-write、InfluxDB 或 Graphite 协议写入指标，用 PromQL/MetricsQL 查询，并在内置的 vmui 网页界面里查看。单容器、单端口，数据保存在应用数据目录。"
+release_note = "1. 首个版本：基于 Docker Hub 的 VictoriaMetrics 1.149.0，以非 root 容器运行。时序数据库，支持 PromQL/MetricsQL 与 vmui 网页界面；数据保存在应用数据目录。"
+important    = "需要 DockerEngine（缺失时应用中心会自动安装）。网页界面在 /vmui（根路径会重定向过去）；把 exporter 或 agent 指向同一端口的 remote-write 路径 /api/v1/write。保留期默认 12 个月，可在应用设置里调整。数据保存在 DockerAppData/victoriametricsdocker/data。界面为纯 HTTP，暴露到公网前请配置带 TLS 的反向代理。"
+
+[zh-hk]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics 是快速、低記憶體的時序資料庫與監控方案：透過 Prometheus remote-write、InfluxDB 或 Graphite 協議寫入指標，用 PromQL/MetricsQL 查詢，並在內建的 vmui 網頁介面裡查看。單容器、單端口，資料保存在應用資料目錄。"
+release_note = "1. 首個版本：基於 Docker Hub 的 VictoriaMetrics 1.149.0，以非 root 容器運行。時序資料庫，支援 PromQL/MetricsQL 與 vmui 網頁介面；資料保存在應用資料目錄。"
+important    = "需要 DockerEngine（缺少時應用中心會自動安裝）。網頁介面在 /vmui（根路徑會重導過去）；把 exporter 或 agent 指向同一端口的 remote-write 路徑 /api/v1/write。保留期預設 12 個月，可在應用設定裡調整。資料保存在 DockerAppData/victoriametricsdocker/data。介面為純 HTTP，公開到互聯網前請配置帶 TLS 的反向代理。"
+
+[fr-fr]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[de-de]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[it-it]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[es-es]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[hu-hu]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[ja-jp]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[ko-kr]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[pl-pl]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[ru-ru]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[tr-tr]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[pt-pt]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[ar-sa]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[cs-cz]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[he-il]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[id-id]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[nb-no]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[nl-nl]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[sv-se]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[th-th]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
+[vi-vn]
+name         = "VictoriaMetrics"
+auth         = "VictoriaMetrics"
+version      = "@@VERSION@@"
+descript     = "VictoriaMetrics is a fast, low-memory time-series database and monitoring solution: receive metrics over the Prometheus remote-write, InfluxDB or Graphite protocols, query with PromQL or MetricsQL, and explore them in the built-in vmui web UI. One container, one port, data in the application data folder."
+release_note = "1. First release: VictoriaMetrics 1.149.0 from Docker Hub as a non-root container. Time-series database with PromQL/MetricsQL and the vmui web UI; data in the application data folder."
+important    = "Requires DockerEngine (installed automatically if missing). The web UI is at /vmui (the root redirects there); point your exporters or agents at the same port (remote-write path /api/v1/write). Retention is set to 12 months; change it in the package/app settings if needed. Data lives in DockerAppData/victoriametricsdocker/data. Plain HTTP; use a TLS reverse proxy before exposing it to the internet."
+
