@@ -1,7 +1,7 @@
 # ===========================================================================
-# VictoriaMetrics for TerraMaster TOS 7 (Docker application)
+# VictoriaMetrics TSDB for TerraMaster TOS 7 (Docker application)
 # ===========================================================================
-# Upstream image : victoriametrics/victoria-metrics:v1.149.0 (Docker Hub, used unmodified)
+# Upstream image : victoriametrics/victoria-metrics:v1.157.0 (Docker Hub, used unmodified)
 #                  -> https://github.com/VictoriaMetrics/VictoriaMetrics
 #
 # Ports   : host 8167 -> container 8428. The host port is in the
@@ -26,11 +26,23 @@
 
 services:
   victoriametricsdocker:
-    image: victoriametrics/victoria-metrics:v1.149.0
+    image: victoriametrics/victoria-metrics:v1.157.0
     container_name: victoriametricsdocker
     restart: unless-stopped
     user: "1000:1000"
-    command: ["-storageDataPath=/victoria-metrics-data", "-httpListenAddr=:8428", "-retentionPeriod=12"]
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    # Startup: the official binary is pinned as the entrypoint and every flag is
+    # an argument under command. A flag must never be the entrypoint itself:
+    # Docker would then try to exec "-storageDataPath=..." as PID 1 and fail
+    # with "runc create failed" (the 1.149.0-1 review finding).
+    entrypoint: ["/victoria-metrics-prod"]
+    command:
+      - "-storageDataPath=/victoria-metrics-data"
+      - "-httpListenAddr=:8428"
+      - "-retentionPeriod=12"
     ports:
       - "8167:8428"
     environment:

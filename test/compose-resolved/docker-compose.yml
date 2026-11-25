@@ -1,0 +1,64 @@
+# ===========================================================================
+# VictoriaMetrics TSDB for TerraMaster TOS 7 (Docker application)
+# ===========================================================================
+# Upstream image : victoriametrics/victoria-metrics:v1.157.0 (Docker Hub, used unmodified)
+#                  -> https://github.com/VictoriaMetrics/VictoriaMetrics
+#
+# Ports   : host 8167 -> container 8428. The host port is in the
+#           TOS-recommended 8000-19999 range and is not one of the reserved
+#           ports (22/80/443/445/3306/5050/5432/6379/8181/8443).
+# Volumes : all persistent data lives below
+#           /Volume1/DockerAppData/victoriametricsdocker/. The /Volume* wildcard is
+#           deliberately NOT used: the platform does not expand it.
+# TOS rules honoured: Docker Hub image with a fixed tag (never ':latest'),
+#           container_name == application id, restart: unless-stopped,
+#           non-root user, no privileged mode, no network_mode: host, no
+#           cap_add, explicit TZ, a healthcheck on the only service, and
+#           x-app-meta as the last block.
+# Escaping: docker compose interpolates ${VAR}/$VAR in compose files, so any
+#           '$' meant for the shell is written '$$'.
+#
+# NOTE for maintainers: never place a comment line directly in front of a
+# "- value" sequence item (ports, volumes, ...). The official
+# TOSAppSelfTestingTool parses the compose file line by line; a comment inside
+# a sequence makes it skip its permission sync, the mounted directories stay
+# root-owned and the non-root container cannot write into them.
+
+services:
+  victoriametricsdocker:
+    image: victoriametrics/victoria-metrics:v1.157.0
+    container_name: victoriametricsdocker
+    restart: unless-stopped
+    user: "1000:1000"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    # Startup: the official binary is pinned as the entrypoint and every flag is
+    # an argument under command. A flag must never be the entrypoint itself:
+    # Docker would then try to exec "-storageDataPath=..." as PID 1 and fail
+    # with "runc create failed" (the 1.149.0-1 review finding).
+    entrypoint: ["/victoria-metrics-prod"]
+    command:
+      - "-storageDataPath=/victoria-metrics-data"
+      - "-httpListenAddr=:8428"
+      - "-retentionPeriod=12"
+    ports:
+      - "8167:8428"
+    environment:
+      TZ: "Asia/Shanghai"
+    volumes:
+      - /Volume1/DockerAppData/victoriametricsdocker/data:/victoria-metrics-data
+    healthcheck:
+      test: ["CMD-SHELL", "grep -q ':20EC' /proc/net/tcp6 || grep -q ':20EC' /proc/net/tcp"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+# TOS App Center web metadata (must be the last block of the file):
+# web.port is the published host port above, protocol is http.
+x-app-meta:
+  web:
+    port: 8167
+    protocol: http
